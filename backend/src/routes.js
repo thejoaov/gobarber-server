@@ -1,11 +1,13 @@
 import { Router } from 'express';
-
+import multer from 'multer';
+import FileController from './app/controllers/FileController';
 import SessionController from './app/controllers/SessionController';
 import UserController from './app/controllers/UserController';
 import authMiddleware from './app/middlewares/auth';
+import multerConfig from './config/multer';
 
 const routes = new Router();
-
+const upload = multer(multerConfig);
 // --- Rotas sem o middleware de autorização ---
 // Rota de registro de usuários
 routes.post('/users', UserController.store);
@@ -16,5 +18,7 @@ routes.post('/sessions', SessionController.store);
 routes.use(authMiddleware);
 // Rota de Edição de usuário
 routes.put('/users', UserController.update);
+// Rota de upload de arquivos
+routes.post('/files', upload.single('file'), FileController.store);
 
 export default routes;
