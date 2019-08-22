@@ -2,12 +2,13 @@ import { Router } from 'express';
 import multer from 'multer';
 
 import AppointmentController from './app/controllers/AppointmentController';
+import AvaiableController from './app/controllers/AvaiableController';
 import FileController from './app/controllers/FileController';
 import NotificationController from './app/controllers/NotificationController';
 import ProviderController from './app/controllers/ProviderController';
 import ScheduleController from './app/controllers/ScheduleController';
-import SessionController from './app/controllers/SessionController';
 
+import SessionController from './app/controllers/SessionController';
 import UserController from './app/controllers/UserController';
 import authMiddleware from './app/middlewares/auth';
 import multerConfig from './config/multer';
@@ -28,6 +29,7 @@ routes.put('/users', UserController.update);
 
 // Rota de Providers
 routes.get('/providers', ProviderController.index);
+routes.get('/providers/:providerId/avaiable', AvaiableController.index);
 
 // Rota de Appointments
 routes.get('/appointments', AppointmentController.index);
