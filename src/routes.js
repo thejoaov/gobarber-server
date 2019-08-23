@@ -22,27 +22,36 @@ routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
 // --- Middleware global de autenticação ---
-routes.use(authMiddleware);
+// routes.use(authMiddleware);
 // Rota de Edição de usuário
-routes.put('/users', UserController.update);
+routes.put('/users', authMiddleware, UserController.update);
 
 // Rota de Providers
-routes.get('/providers', ProviderController.index);
+routes.get('/providers', authMiddleware, ProviderController.index);
 routes.get('/providers/:providerId/avaiable', AvaiableController.index);
 
 // Rota de Appointments
-routes.get('/appointments', AppointmentController.index);
-routes.post('/appointments', AppointmentController.store);
-routes.delete('/appointments/:id', AppointmentController.delete);
+routes.get('/appointments', authMiddleware, AppointmentController.index);
+routes.post('/appointments', authMiddleware, AppointmentController.store);
+routes.delete(
+  '/appointments/:id',
+  authMiddleware,
+  AppointmentController.delete
+);
 
 // Rotas de Schedule
-routes.get('/schedule', ScheduleController.index);
+routes.get('/schedule', authMiddleware, ScheduleController.index);
 
 // Rota de notificações
-routes.get('/notifications', NotificationController.index);
-routes.put('/notifications/:id', NotificationController.update);
+routes.get('/notifications', authMiddleware, NotificationController.index);
+routes.put('/notifications/:id', authMiddleware, NotificationController.update);
 
 // Rota de Upload de arquivos
-routes.post('/files', upload.single('file'), FileController.store);
+routes.post(
+  '/files',
+  authMiddleware,
+  upload.single('file'),
+  FileController.store
+);
 
 export default routes;
