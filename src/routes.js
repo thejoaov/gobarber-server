@@ -24,7 +24,6 @@ routes.post('/sessions', SessionController.store);
 // --- Middleware global de autenticação ---
 routes.use(authMiddleware);
 // Rota de Edição de usuário
-
 routes.put('/users', UserController.update);
 
 // Rota de Providers
