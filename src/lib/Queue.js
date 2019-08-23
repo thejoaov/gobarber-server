@@ -15,7 +15,7 @@ class Queue {
     jobs.forEach(({ key, handle }) => {
       this.queues[key] = {
         bee: new Bee(key, {
-          redis: redisConfig,
+          redis: redisConfig(),
         }),
         handle,
       };
