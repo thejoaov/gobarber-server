@@ -7,7 +7,6 @@ import FileController from './app/controllers/FileController';
 import NotificationController from './app/controllers/NotificationController';
 import ProviderController from './app/controllers/ProviderController';
 import ScheduleController from './app/controllers/ScheduleController';
-
 import SessionController from './app/controllers/SessionController';
 import UserController from './app/controllers/UserController';
 import authMiddleware from './app/middlewares/auth';
