@@ -5,8 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "concurrently --kill-others \"sucrase-node src/server.js\" \"sucrase-node src/queue.js\"",
-    "dev": "nodemon src/server.js",
-    "devq": "concurrently --kill-others \"nodemon src/server.js\" \"nodemon src/queue.js\"",
+    "dev": "concurrently --kill-others \"nodemon src/server.js\" \"nodemon src/queue.js\"",
     "queue": "nodemon src/queue.js"
   },
   "dependencies": {
