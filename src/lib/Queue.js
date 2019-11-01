@@ -23,11 +23,13 @@ class Queue {
   }
 
   add(queue, job) {
+    console.log(`Processing ${job.name}`);
     return this.queues[queue].bee.createJob(job).save();
   }
 
   processQueue() {
     jobs.forEach(job => {
+      console.log('Queue started');
       const { bee, handle } = this.queues[job.key];
       bee.on('failed', this.handleFailure).process(handle);
     });

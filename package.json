@@ -1,14 +1,13 @@
 {
-  "name": "backend-gobarber",
-  "version": "1.0.0",
+  "name": "gobarber-server",
+  "version": "1.1.2",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "concurrently --kill-others \"nodemon src/server.js\" \"nodemon src/queue.js\"",
     "server": "nodemon src/server.js",
     "queue": "nodemon src/queue.js",
-    "build": "sucrase ./src -d ./dist --transforms imports",
-    "migrate": "yarn sequelize db:migrate"
+    "build": "sucrase ./src -d ./dist --transforms imports"
   },
   "dependencies": {
     "@sentry/node": "5.7.1",

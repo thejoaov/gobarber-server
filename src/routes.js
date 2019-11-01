@@ -12,6 +12,8 @@ import UserController from './app/controllers/UserController';
 import authMiddleware from './app/middlewares/auth';
 import multerConfig from './config/multer';
 
+import { version } from '../package.json';
+
 const routes = new Router();
 const upload = multer(multerConfig);
 // --- Rotas sem o middleware de autorização ---
@@ -21,6 +23,7 @@ routes.get('/', (req, res) => {
   res.json({
     time: new Date(),
     message: 'Welcome to GoBarber API Server',
+    version,
   });
 });
 // Rota de registro de usuários
