@@ -20,8 +20,7 @@ const upload = multer(multerConfig);
 routes.get('/', (req, res) => {
   res.json({
     time: new Date(),
-    message:
-      'Welcome to GoBarber API Server! Have a nice day!',
+    message: 'Welcome to GoBarber API Server',
   });
 });
 // Rota de registro de usuários
