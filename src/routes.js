@@ -22,6 +22,7 @@ routes.get('/', (req, res) => {
     time: new Date(),
     message:
       'Greetings my friend! Welcome to GoBarber API Server! Have a nice day!',
+    nani: 'sapiudhaspiuh',
   });
 });
 // Rota de registro de usuários
