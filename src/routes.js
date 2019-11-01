@@ -15,6 +15,15 @@ import multerConfig from './config/multer';
 const routes = new Router();
 const upload = multer(multerConfig);
 // --- Rotas sem o middleware de autorização ---
+
+// Rota inicial
+routes.get('/', (req, res) => {
+  res.json({
+    time: new Date(),
+    message:
+      'Greetings my friend! Welcome to GoBarber API Server! Have a nice day!',
+  });
+});
 // Rota de registro de usuários
 routes.post('/users', UserController.store);
 // Rota de login
