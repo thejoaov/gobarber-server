@@ -21,7 +21,7 @@ routes.get('/', (req, res) => {
   res.json({
     time: new Date(),
     message:
-      'Greetings my friend! Welcome to GoBarber API Server! Have a nice day!',
+      'Welcome to GoBarber API Server! Have a nice day!',
   });
 });
 // Rota de registro de usuários
