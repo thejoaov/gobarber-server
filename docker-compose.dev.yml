@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: dev-gobarber-database-postgres
+    image: postgres:11.5-alpine
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DATABASE=${DB_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    container_name: dev-gobarber-database-redis
+    image: redis:alpine
+    ports:
+      - '6379:6379'
+
+  mongo:
+    container_name: dev-gobarber-database-mongo
+    image: mongo
+    ports:
+      - '27017:27017'
+
+  mailhog:
+    container_name: dev-gobarber-service-mailhog
+    image: mailhog/mailhog
+    ports:
+      - '8025:8025'
+
+volumes:
+  postgres_data:

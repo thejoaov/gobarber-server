@@ -1,6 +1,6 @@
 FROM node:alpine
 
-WORKDIR /usr/backend
+WORKDIR /usr/app
 
 COPY . ./
 RUN yarn

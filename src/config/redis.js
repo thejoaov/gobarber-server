@@ -1,8 +1,8 @@
 function redisConfig() {
   if (process.env.NODE_ENV === 'development') {
     return {
-      host: process.env.REDIS_HOST,
-      port: process.env.REDIS_PORT,
+      host: 'localhost',
+      port: 6379,
     };
   }
   return { url: process.env.REDIS_URL };
