@@ -8,7 +8,6 @@
     "debug": "nodemon src/server.js",
     "dev": "yarn migrate && yarn debug",
     "queue": "nodemon src/queue.js",
-    "doc": "yarn serve ./docs/local",
     "migrate": "yarn sequelize db:migrate"
   },
   "dependencies": {
