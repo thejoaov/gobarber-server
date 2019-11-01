@@ -1,6 +1,6 @@
 node_modules
 tmp
-.env.development
-.env.production
+.env*
+!.env.example
 tmp/uploads
 dist
