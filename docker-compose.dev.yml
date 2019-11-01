@@ -31,5 +31,14 @@ services:
     ports:
       - '8025:8025'
 
+  docs:
+    container_name: 'dev-docs-application'
+    build: docs
+    ports:
+      - '5000:5000'
+    command: yarn start
+    volumes:
+      - '.:/usr/documentation'
+
 volumes:
   postgres_data:
