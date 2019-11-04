@@ -9,7 +9,7 @@ services:
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASS}
-      - POSTGRES_DATABASE=${DB_NAME}
+      - POSTGRES_DB=${DB_NAME}
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -35,8 +35,8 @@ services:
     container_name: 'dev-docs-application'
     build: docs
     ports:
-      - '5000:5000'
-    command: yarn start
+      - '5001:5001'
+    command: yarn start -p 5001
     volumes:
       - '.:/usr/documentation'
 
