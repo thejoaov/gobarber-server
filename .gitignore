@@ -2,5 +2,6 @@ node_modules
 tmp
 .env*
 !.env.example
+!.env.test
 tmp/uploads
 dist
