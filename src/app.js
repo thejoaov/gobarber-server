@@ -1,6 +1,9 @@
 /* eslint-disable import/order */
+import './bootstrap';
+
 import path from 'path';
 import cors from 'cors';
+
 import express from 'express';
 import 'express-async-errors';
 import Youch from 'youch';
