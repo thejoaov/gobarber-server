@@ -1,3 +1,4 @@
+__tests__/coverage
 node_modules
 tmp
 .env*
@@ -5,4 +6,3 @@ tmp
 !.env.test
 tmp/uploads
 dist
-tests/coverage/*
