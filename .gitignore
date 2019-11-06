@@ -5,3 +5,4 @@ tmp
 !.env.test
 tmp/uploads
 dist
+tests/coverage/*
