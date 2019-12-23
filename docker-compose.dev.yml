@@ -30,15 +30,5 @@ services:
     image: mailhog/mailhog
     ports:
       - '8025:8025'
-
-  docs:
-    container_name: 'dev-docs-application'
-    build: docs
-    ports:
-      - '5001:5001'
-    command: yarn start -p 5001
-    volumes:
-      - '.:/usr/documentation'
-
 volumes:
   postgres_data:

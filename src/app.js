@@ -7,7 +7,6 @@ import cors from 'cors';
 import express from 'express';
 import 'express-async-errors';
 import Youch from 'youch';
-import 'dotenv/config';
 import sentryConfig from './config/sentry';
 
 import './database';
@@ -18,7 +17,7 @@ import * as Sentry from '@sentry/node';
 class App {
   constructor() {
     this.server = express();
-
+    // dotenv.config();
     Sentry.init(sentryConfig);
 
     this.middlewares();
