@@ -2,19 +2,19 @@ import { format, parseISO } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import Mail from '../../lib/Mail';
 
-class CancellationMail {
+class CancelationMailUser {
   get key() {
-    return 'CancellationMail';
+    return 'CancelationMailUser';
   }
 
   async handle({ data }) {
     const { appointment } = data;
 
     await Mail.sendMail({
-      to: `${appointment.provider.name} <${appointment.provider.email}>`,
+      to: `${appointment.user.name} <${appointment.user.email}>`,
       subject: 'Agendamento cancelado',
-      text: 'Você tem um cancelamento',
-      template: 'cancellation',
+      text: 'O agendamento foi cancelado com sucesso',
+      template: 'cancelation_user',
       context: {
         provider: appointment.provider.name,
         user: appointment.user.name,
@@ -30,4 +30,4 @@ class CancellationMail {
   }
 }
 
-export default new CancellationMail();
+export default new CancelationMailUser();

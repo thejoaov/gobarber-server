@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "predev": "yarn && yarn docker-compose && yarn migrate",
+    "predev": "yarn && yarn docker-compose:down && yarn docker-compose && yarn migrate",
     "dev": "concurrently --kill-others \"nodemon src/server.js\" \"nodemon src/queue.js\" \"serve ./docs\"",
     "server": "nodemon src/server.js",
     "queue": "nodemon src/queue.js",
@@ -13,7 +13,8 @@
     "pretest": "NODE_ENV=test sequelize db:migrate",
     "test": "NODE_ENV=test jest --forceExit",
     "posttest": "NODE_ENV=test sequelize db:migrate:undo:all",
-    "docker-compose": "docker-compose -f docker-compose.dev.yml up -d --build --force-recreate --quiet-pull"
+    "docker-compose": "docker-compose -f docker-compose.dev.yml up -d --build --force-recreate --quiet-pull",
+    "docker-compose:down": "docker-compose -f docker-compose.dev.yml down"
   },
   "dependencies": {
     "@sentry/node": "5.10.2",

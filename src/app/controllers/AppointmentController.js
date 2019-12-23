@@ -2,12 +2,13 @@ import { format, isBefore, parseISO, startOfHour, subHours } from 'date-fns';
 import * as Yup from 'yup';
 import pt from 'date-fns/locale/pt';
 import Queue from '../../lib/Queue';
-import CancellationMail from '../jobs/CancellationMail';
+import CancelationMailProvider from '../jobs/CancelationMailProvider';
 
 import Appointment from '../models/Appointment';
 import File from '../models/File';
 import User from '../models/User';
 import Notification from '../schemas/Notification';
+import CancelationMailUser from '../jobs/CancelationMailUser';
 
 class AppointmentController {
   async index(req, res) {
@@ -121,7 +122,7 @@ class AppointmentController {
         {
           model: User,
           as: 'user',
-          attributes: ['name'],
+          attributes: ['name', 'email'],
         },
       ],
     });
@@ -155,7 +156,16 @@ class AppointmentController {
 
     await appointment.save();
 
-    await Queue.add(CancellationMail.key, { appointment });
+    await Queue.add(CancelationMailProvider.key, {
+      name: `Processing cancelation mail to <${appointment.provider.email}>`,
+      appointment,
+    });
+
+    await Queue.add(CancelationMailUser.key, {
+      name: `Processing cancelation mail to <${appointment.user.email}>`,
+      appointment,
+    });
+
     return res.json(appointment);
   }
 }
