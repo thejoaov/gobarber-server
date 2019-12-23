@@ -4,18 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "predev": "yarn && yarn docker-build:dev && yarn docker-compose:dev -d",
+    "predev": "yarn && yarn docker-compose && yarn migrate",
     "dev": "concurrently --kill-others \"nodemon src/server.js\" \"nodemon src/queue.js\" \"serve ./docs\"",
     "server": "nodemon src/server.js",
     "queue": "nodemon src/queue.js",
     "build": "sucrase ./src -d ./dist --transforms imports",
+    "migrate": "sequelize db:migrate",
     "pretest": "NODE_ENV=test sequelize db:migrate",
     "test": "NODE_ENV=test jest --forceExit",
     "posttest": "NODE_ENV=test sequelize db:migrate:undo:all",
-    "docker-build:dev": "docker-compose -f docker-compose.dev.yml build --no-cache --pull --force-rm",
-    "docker-build:prod": "docker-compose -f docker-compose.prod.yml build --no-cache --pull --force-rm",
-    "docker-compose:dev": "docker-compose -f \"docker-compose.dev.yml\" up",
-    "docker-compose:prod": "docker-compose -f \"docker-compose.prod.yml\" up"
+    "docker-compose": "docker-compose -f docker-compose.dev.yml up -d --build --force-recreate --quiet-pull"
   },
   "dependencies": {
     "@sentry/node": "5.10.2",
@@ -45,6 +43,7 @@
     "yup": "^0.28.0"
   },
   "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
     "eslint": "6.8.0",
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-config-prettier": "6.5.0",
