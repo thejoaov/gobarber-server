@@ -42,7 +42,7 @@
     "sequelize": "^5.15.1",
     "sucrase": "^3.10.1",
     "youch": "^2.0.10",
-    "yup": "^0.27.0"
+    "yup": "^0.28.0"
   },
   "devDependencies": {
     "eslint": "6.8.0",
