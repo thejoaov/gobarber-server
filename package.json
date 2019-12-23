@@ -64,7 +64,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "prettier './**/*.js' --write --ignore './docs'",
+      "pre-push": "prettier './**/*.js' --write",
       "pre-commit": "lint-staged"
     }
   },
