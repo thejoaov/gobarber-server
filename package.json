@@ -18,7 +18,7 @@
     "docker-compose:prod": "docker-compose -f \"docker-compose.prod.yml\" up"
   },
   "dependencies": {
-    "@sentry/node": "5.7.1",
+    "@sentry/node": "5.10.2",
     "bcryptjs": "^2.4.3",
     "bee-queue": "^1.2.2",
     "boxen": "^4.2.0",
