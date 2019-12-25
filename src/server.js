@@ -9,7 +9,7 @@ console.log(
 ENV: ${process.env.NODE_ENV.toUpperCase()}
 HOST: ${process.env.HOST}
 PORT: ${process.env.PORT}
-SERVER URL: ${process.env.APP_URL}`,
+URL: ${process.env.APP_URL}`,
     { padding: 1, borderStyle: 'double' }
   )
 );
