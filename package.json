@@ -67,7 +67,8 @@
   "husky": {
     "hooks": {
       "pre-push": "prettier './**/*.js' --write",
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "post-pull": "yarn"
     }
   },
   "lint-staged": {
