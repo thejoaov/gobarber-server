@@ -1,1 +1,1 @@
-# Gobarber Backend
+# GoBarber Backend
