@@ -1,4 +1,5 @@
 __tests__/coverage/lcov*
+__tests__/database.sqlite
 node_modules
 tmp
 .env*
@@ -6,4 +7,3 @@ tmp
 !.env.test
 tmp/uploads
 dist
-*.sqlite
