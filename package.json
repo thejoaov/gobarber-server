@@ -68,7 +68,8 @@
     "hooks": {
       "pre-push": "prettier './**/*.js' --write",
       "pre-commit": "lint-staged",
-      "post-pull": "yarn"
+      "post-merge": "yarn",
+      "post-checkout": "yarn"
     }
   },
   "lint-staged": {
