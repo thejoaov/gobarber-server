@@ -6,3 +6,4 @@ tmp
 !.env.test
 tmp/uploads
 dist
+*.sqlite
