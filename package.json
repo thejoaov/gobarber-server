@@ -19,7 +19,7 @@
     "docker-compose:test:down": "docker-compose -f docker-compose.test.yml down"
   },
   "dependencies": {
-    "@sentry/node": "5.11.1",
+    "@sentry/node": "5.12.4",
     "bcryptjs": "^2.4.3",
     "bee-queue": "^1.2.2",
     "boxen": "^4.2.0",
